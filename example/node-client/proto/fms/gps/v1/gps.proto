@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package fms.gps.v1;
+
+service GPS {
+  rpc GetLatLng(LatLngRequest) returns (LatLngResponse) {}
+}
+
+message LatLngRequest { }
+
+message LatLngResponse {
+  double lat = 1;
+  double lng = 2;
+}

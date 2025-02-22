@@ -1,0 +1,36 @@
+[package]
+name = "fms-io-bridge"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "start"
+path = "src/main.rs"
+
+[[bin]]
+name = "dev"
+path = "src/main.rs"
+watch = true
+
+[[bin]]
+name = "test_gps"
+path = "src/gps_ublox.rs"
+
+[[bin]]
+name = "serial_list"
+path = "src/serial_list.rs"
+
+[dependencies]
+prost = "0.13.5"
+serialport = "4.7.0"
+tokio = { version = "1.43.0", features = ["full"] }
+tonic = "0.12.3"
+tonic-reflection = "0.12.3"
+tonic-web = "0.12.3"
+ublox = "0.4.5"
+
+[build-dependencies]
+tonic-build = "0.12.3"
+
+[target.aarch64-unknown-linux-gnu]
+linker = "rust-lld"

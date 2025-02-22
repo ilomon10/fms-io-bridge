@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package fms;
+
+import "gps/v1/gps.proto";
