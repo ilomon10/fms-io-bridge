@@ -3,26 +3,39 @@ name = "fms-io-bridge"
 version = "0.1.0"
 edition = "2021"
 
-[[bin]]
-name = "start"
-path = "src/main.rs"
+# [[bin]]
+# name = "start"
+# path = "src/main.rs"
 
 [[bin]]
 name = "dev"
 path = "src/main.rs"
-watch = true
 
-[[bin]]
-name = "test_gps"
-path = "src/gps_ublox.rs"
+[[example]]
+name = "ublox_cli"
 
-[[bin]]
+[[example]]
 name = "serial_list"
-path = "src/serial_list.rs"
+
+[[example]]
+name = "gpsd_test"
+
+[[example]]
+name = "baudrate_checker"
+
+[[example]]
+name = "gps_parser"
 
 [dependencies]
+chrono = "0.4.39"
+clap = "4.5.30"
+env_logger = "0.11.6"
+gpsd_proto = "1.0.0"
+itertools = "0.14.0"
+log = "0.4.26"
+nmea = "0.7.0"
 prost = "0.13.5"
-serialport = "4.7.0"
+serialport = { version="4.7.0", default-features = false }
 tokio = { version = "1.43.0", features = ["full"] }
 tonic = "0.12.3"
 tonic-reflection = "0.12.3"
