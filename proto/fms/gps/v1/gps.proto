@@ -4,6 +4,8 @@ package fms.gps.v1;
 
 service GPS {
   rpc GetLatLng(LatLngRequest) returns (LatLngResponse) {}
+  rpc GetNmea(NmeaRequest) returns (NmeaResponse) {}
+  rpc GetFixNmea(NmeaRequest) returns (FixNmeaResponse) {}
 }
 
 message LatLngRequest { }
@@ -12,3 +14,30 @@ message LatLngResponse {
   double lat = 1;
   double lng = 2;
 }
+
+message NmeaRequest { }
+
+message NmeaResponse {
+  double  latitude  = 1;
+  double  longitude = 2;
+  
+  float   altitude  = 3;
+  float   speed      = 4;
+
+  float   hdop      = 5;
+}
+
+message FixNmeaResponse {
+  double  latitude  = 1;
+  double  longitude = 2;
+  
+  float   altitude  = 3;
+  float   speed      = 4;
+
+  float   hdop      = 5;
+
+  string  fix_time  = 6;
+  string  fix_date  = 7;
+  uint32  fix_satellites = 8;
+}
+

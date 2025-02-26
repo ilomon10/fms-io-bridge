@@ -30,6 +30,7 @@ name = "gps_parser"
 chrono = "0.4.39"
 clap = "4.5.30"
 env_logger = "0.11.6"
+flexi_logger = { version = "0.29.8", features = ["async"] }
 gpsd_proto = "1.0.0"
 itertools = "0.14.0"
 log = "0.4.26"
@@ -41,6 +42,23 @@ tonic = "0.12.3"
 tonic-reflection = "0.12.3"
 tonic-web = "0.12.3"
 ublox = "0.4.5"
+
+[profile.release]
+opt-level = 3
+debug = false
+split-debuginfo = '...'  # Platform-specific.
+strip = "none"
+debug-assertions = false
+overflow-checks = false
+lto = false
+panic = 'unwind'
+incremental = false
+codegen-units = 16
+rpath = false
+
+[profile.dev]
+opt-level = 3
+debug = true
 
 [build-dependencies]
 tonic-build = "0.12.3"
